@@ -1,0 +1,323 @@
+/* =============================================
+   main.css – Hauptstylesheet für realteacher.de
+   Responsives, modernes Layout
+   ============================================= */
+
+/* ---- CSS-Variablen ---- */
+:root {
+  --farbe-primaer: #1a73e8;
+  --farbe-primaer-dunkel: #1558b0;
+  --farbe-akzent: #34a853;
+  --farbe-hintergrund: #f8f9fa;
+  --farbe-text: #202124;
+  --farbe-text-hell: #5f6368;
+  --farbe-weiss: #ffffff;
+  --farbe-rahmen: #dadce0;
+  --farbe-schatten: rgba(0, 0, 0, 0.1);
+  --schrift-haupt: 'Segoe UI', Roboto, Arial, sans-serif;
+  --abstand-s: 0.5rem;
+  --abstand-m: 1rem;
+  --abstand-l: 2rem;
+  --abstand-xl: 4rem;
+  --radius: 8px;
+  --max-breite: 1200px;
+}
+
+/* ---- Reset & Basis ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--schrift-haupt);
+  color: var(--farbe-text);
+  background-color: var(--farbe-hintergrund);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--farbe-primaer);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---- Layout-Hilfklassen ---- */
+.container {
+  max-width: var(--max-breite);
+  margin: 0 auto;
+  padding: 0 var(--abstand-m);
+}
+
+/* ---- Header & Navigation ---- */
+.site-header {
+  background-color: var(--farbe-weiss);
+  border-bottom: 2px solid var(--farbe-primaer);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 6px var(--farbe-schatten);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--abstand-m) var(--abstand-m);
+  max-width: var(--max-breite);
+  margin: 0 auto;
+}
+
+.site-logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--farbe-primaer);
+  letter-spacing: -0.5px;
+}
+
+.site-logo span {
+  color: var(--farbe-akzent);
+}
+
+/* Haupt-Navigation */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--abstand-m);
+}
+
+.main-nav a {
+  font-weight: 500;
+  color: var(--farbe-text);
+  padding: var(--abstand-s) var(--abstand-m);
+  border-radius: var(--radius);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.main-nav a:hover,
+.main-nav a.aktiv {
+  background-color: var(--farbe-primaer);
+  color: var(--farbe-weiss);
+  text-decoration: none;
+}
+
+/* Hamburger-Menü-Button (mobil) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: var(--abstand-s);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: var(--farbe-text);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* ---- Hero-Bereich ---- */
+.hero {
+  background: linear-gradient(135deg, var(--farbe-primaer) 0%, var(--farbe-primaer-dunkel) 100%);
+  color: var(--farbe-weiss);
+  padding: var(--abstand-xl) var(--abstand-m);
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  margin-bottom: var(--abstand-m);
+  line-height: 1.3;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto var(--abstand-l);
+  opacity: 0.9;
+}
+
+/* Hinweis-Banner "Im Aufbau" */
+.hinweis-banner {
+  background-color: #fff8e1;
+  border: 1px solid #f9a825;
+  border-radius: var(--radius);
+  padding: var(--abstand-m);
+  margin: var(--abstand-l) auto;
+  max-width: 700px;
+  text-align: center;
+  color: #5d4037;
+  font-size: 0.95rem;
+}
+
+.hinweis-banner strong {
+  display: block;
+  margin-bottom: var(--abstand-s);
+  font-size: 1rem;
+  color: #e65100;
+}
+
+/* ---- Inhaltsbereich / Boxen ---- */
+.bereich-boxen {
+  padding: var(--abstand-xl) var(--abstand-m);
+}
+
+.bereich-boxen h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: var(--abstand-l);
+  color: var(--farbe-text);
+}
+
+.boxen-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--abstand-l);
+  max-width: var(--max-breite);
+  margin: 0 auto;
+}
+
+/* Einzelne Box */
+.box {
+  background-color: var(--farbe-weiss);
+  border: 1px solid var(--farbe-rahmen);
+  border-radius: var(--radius);
+  padding: var(--abstand-l);
+  text-align: center;
+  transition: box-shadow 0.25s, transform 0.25s;
+  cursor: default;
+}
+
+.box:hover {
+  box-shadow: 0 6px 20px var(--farbe-schatten);
+  transform: translateY(-3px);
+}
+
+.box-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--abstand-m);
+}
+
+.box h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--abstand-s);
+  color: var(--farbe-primaer);
+}
+
+.box p {
+  color: var(--farbe-text-hell);
+  font-size: 0.95rem;
+}
+
+.box a.box-link {
+  display: inline-block;
+  margin-top: var(--abstand-m);
+  padding: var(--abstand-s) var(--abstand-m);
+  background-color: var(--farbe-primaer);
+  color: var(--farbe-weiss);
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.box a.box-link:hover {
+  background-color: var(--farbe-primaer-dunkel);
+  text-decoration: none;
+}
+
+/* ---- Platzhalterseiten (Module) ---- */
+.platzhalter-seite {
+  padding: var(--abstand-xl) var(--abstand-m);
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.platzhalter-seite h1 {
+  font-size: 2rem;
+  color: var(--farbe-primaer);
+  margin-bottom: var(--abstand-m);
+}
+
+.platzhalter-seite p {
+  color: var(--farbe-text-hell);
+  margin-bottom: var(--abstand-m);
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  background-color: var(--farbe-text);
+  color: #bdc1c6;
+  padding: var(--abstand-l) var(--abstand-m);
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: var(--abstand-xl);
+}
+
+.site-footer a {
+  color: var(--farbe-primaer);
+}
+
+.site-footer a:hover {
+  color: var(--farbe-weiss);
+}
+
+/* ---- Responsive Breakpoints ---- */
+@media (max-width: 768px) {
+  /* Hamburger-Button sichtbar */
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* Navigation klappt ein */
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--farbe-weiss);
+    border-top: 1px solid var(--farbe-rahmen);
+    padding: var(--abstand-m);
+    display: none;
+    box-shadow: 0 4px 10px var(--farbe-schatten);
+  }
+
+  .main-nav.offen {
+    display: block;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: var(--abstand-s);
+  }
+
+  .main-nav a {
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .boxen-grid {
+    grid-template-columns: 1fr;
+  }
+}
