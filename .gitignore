@@ -1,0 +1,16 @@
+# -----------------------------------------------------------------------
+# Gespiegelter Website-Inhalt (wird von mirror.sh befüllt)
+# -----------------------------------------------------------------------
+mirror/
+
+# Betriebssystem-Artefakte
+.DS_Store
+Thumbs.db
+
+# Editor-Verzeichnisse
+.idea/
+.vscode/
+
+# wget-Logdateien
+wget-log
+*.log
