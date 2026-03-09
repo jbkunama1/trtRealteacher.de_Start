@@ -14,3 +14,24 @@ Thumbs.db
 # wget-Logdateien
 wget-log
 *.log
+# Abhängigkeiten
+vendor/
+node_modules/
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Datenbank-Dateien (lokal, nicht ins Repo)
+*.sqlite
+*.db
+
+# Build-Ausgaben
+/dist/
+/build/
+
+# Konfiguration mit echten Zugangsdaten
+/backend/config.php
